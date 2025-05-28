@@ -1,0 +1,51 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Poetry
+poetry.lock
+.cache/
+.installed.cfg
+
+# Virtual environment
+.env
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Jupyter Notebook metadata
+*.nbconvert.ipynb
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
