@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/MA-DOS/ShaReComp/compare/v1.0.0...v1.1.0) (2025-05-30)
+
+
+### Features
+
+* add wip affn score computation and monitoring time-series entity matching ([c7afe0d](https://github.com/MA-DOS/ShaReComp/commit/c7afe0d7299b80dd710d73479b0a43b2a8176508))
+
 # 1.0.0 (2025-05-30)
 
 
