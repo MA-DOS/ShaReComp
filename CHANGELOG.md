@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/MA-DOS/ShaReComp/compare/v1.1.0...v1.2.0) (2025-05-30)
+
+
+### Features
+
+* added affinity score computation and did entity matching for nxf containers to nf-core tasks in time-series data ([e87e647](https://github.com/MA-DOS/ShaReComp/commit/e87e64707236318569f7ce92fc0b64bfedd1bbca))
+
 # [1.1.0](https://github.com/MA-DOS/ShaReComp/compare/v1.0.0...v1.1.0) (2025-05-30)
 
 
