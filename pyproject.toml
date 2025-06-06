@@ -14,7 +14,9 @@ dependencies = [
     "ipykernel (>=6.29.5,<7.0.0)",
     "numpy (>=2.2.6,<3.0.0)",
     "pandas (>=2.2.3,<3.0.0)",
-    "docker (>=7.1.0,<8.0.0)"
+    "docker (>=7.1.0,<8.0.0)",
+    "py-rapl @ file:///storage/nf-core/exec/py-rapl",
+    "pyrcca (>=0.2,<0.3)"
 ]
 
 
