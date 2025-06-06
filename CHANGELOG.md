@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/MA-DOS/ShaReComp/compare/v1.2.0...v1.3.0) (2025-06-06)
+
+
+### Features
+
+* add linpack to cpu bench and feature vector computation per workflow task ([a4e8ae3](https://github.com/MA-DOS/ShaReComp/commit/a4e8ae3e36e0b824416a685a240fb2547aded14f))
+
 # [1.2.0](https://github.com/MA-DOS/ShaReComp/compare/v1.1.0...v1.2.0) (2025-05-30)
 
 
