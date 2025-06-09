@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/MA-DOS/ShaReComp/compare/v1.3.0...v1.4.0) (2025-06-09)
+
+
+### Features
+
+* added feature preprocessing and fitted kcca model + increased benchmark intensity for affinity score comp ([ad183c2](https://github.com/MA-DOS/ShaReComp/commit/ad183c2981aeb4fd7ffaa7ad7d88dd035171bf73))
+
 # [1.3.0](https://github.com/MA-DOS/ShaReComp/compare/v1.2.0...v1.3.0) (2025-06-06)
 
 
