@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/MA-DOS/ShaReComp/compare/v1.4.0...v1.4.1) (2025-06-09)
+
+
+### Bug Fixes
+
+* fix affinity score dict typo ([21c41a5](https://github.com/MA-DOS/ShaReComp/commit/21c41a5e3e638c704b2429baadc99e2b1ff0b221))
+
 # [1.4.0](https://github.com/MA-DOS/ShaReComp/compare/v1.3.0...v1.4.0) (2025-06-09)
 
 
