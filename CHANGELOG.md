@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/MA-DOS/ShaReComp/compare/v1.4.1...v1.5.0) (2025-06-24)
+
+
+### Features
+
+* added power measurements into benchmarking pipeline ([9bd946c](https://github.com/MA-DOS/ShaReComp/commit/9bd946cd53c69b244f8a31f41f466a5b9a69f865))
+
 ## [1.4.1](https://github.com/MA-DOS/ShaReComp/compare/v1.4.0...v1.4.1) (2025-06-09)
 
 
