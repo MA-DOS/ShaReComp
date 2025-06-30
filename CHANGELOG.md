@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/MA-DOS/ShaReComp/compare/v1.6.0...v1.7.0) (2025-06-30)
+
+
+### Features
+
+* added kcca prediction function on test data ([2f8ca13](https://github.com/MA-DOS/ShaReComp/commit/2f8ca138489e82e0ed0b60773ad0ade4378e54ea))
+
 # [1.6.0](https://github.com/MA-DOS/ShaReComp/compare/v1.5.0...v1.6.0) (2025-06-30)
 
 
