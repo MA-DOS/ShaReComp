@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/MA-DOS/ShaReComp/compare/v1.5.0...v1.6.0) (2025-06-30)
+
+
+### Features
+
+* refined scripts into funcs, added scope-specific data processing, added power values to feature matrix, added annotations for interpretability, ([82dfc70](https://github.com/MA-DOS/ShaReComp/commit/82dfc70758761294bc8bbc31507e96ce0c81549d))
+
 # [1.5.0](https://github.com/MA-DOS/ShaReComp/compare/v1.4.1...v1.5.0) (2025-06-24)
 
 
