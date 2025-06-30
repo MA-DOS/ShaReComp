@@ -1,0 +1,89 @@
+server_configurations:
+  config_path: ~/dev/LowLevelMonitoring/config.yml
+  prometheus:
+    target_server:
+      controller: "130.149.248.105"
+      workers: ["130.149.248.105"]
+      address: "http://130.149.248.105:9090"
+      timeout: 10s
+      interval: 1
+monitoring_targets:
+  task_metadata:
+    enabled: true
+    data_sources:
+      - source: slurm-job-exporter
+        labels: [instance,job_name,job_state,node,run_time,work_dir]
+        identifier: work_dir
+        metrics:
+          - name: slurm_job_id
+            query: slurm_job_id
+            unit: ""
+  cpu:
+    enabled: true
+    data_sources:
+      - source: cAdvisor
+        labels: [id, image, job,name]
+        identifier: name
+        metrics:
+          - name: container_cpu_user_seconds_total
+            query: container_cpu_user_seconds_total
+            unit: seconds
+      - source: ebpf-mon
+        labels: [container_id, name]
+        identifier: name
+        metrics:
+          - name: container_weighted_cycles
+            query: container_weighted_cycles
+            unit: counter
+      - source: docker-activity
+        labels: [container_id, container_name,instance]
+        identifier: container_name
+        metrics:
+          - name: cpuPercent
+            query: cpuPercent
+            unit: percentage (%)
+  memory:
+    enabled: false
+    data_sources:
+        identifier: name
+        metrics:
+          - name: container_memory_usage_bytes
+            query: container_memory_usage_bytes
+            unit: bytes
+  disk:
+    enabled: false
+    data_sources:
+      - source: cAdvisor
+        labels: [id, image, job,name]
+        identifier: name
+        metrics:
+          - name: container_blkio_device_usage_total
+            query: container_blkio_device_usage_total
+            unit: bytes
+  network:
+    enabled: false
+    data_sources:
+      - source: cAdvisor
+        labels: [id, image, job,name]
+        identifier: name
+        metrics:
+          - name: container_network_transmit_bytes_total
+            query: container_network_transmit_bytes_total
+            unit: bytes
+  energy:
+    enabled: true
+    data_sources:
+      - source: docker-activity
+        labels: [container_id, container_name,instance]
+        identifier: container_name
+        metrics:
+          - name: energyUsage
+            query: cpuEnergy
+            unit: microjoules
+      - source: ebpf-mon
+        labels: [container_id, name]
+        identifier: name
+        metrics:
+          - name: container_power 
+            query: container_power
+            unit: microjoules
