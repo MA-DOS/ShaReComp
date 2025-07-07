@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/MA-DOS/ShaReComp/compare/v1.7.0...v1.8.0) (2025-07-07)
+
+
+### Features
+
+* added custom distance function, sketched clustering algorithm, implemented Random Forest training and predictor ([7b59807](https://github.com/MA-DOS/ShaReComp/commit/7b59807856c9a8f8b1fb9166581ce23f9df21c9b))
+* refined memory and fileio benchmarks to run full workload, integrate mean power values, recompute affinity scores and output result ([0dc1b8f](https://github.com/MA-DOS/ShaReComp/commit/0dc1b8f08c0da19fc2892d9d8b640414a0d887ad))
+
 # [1.7.0](https://github.com/MA-DOS/ShaReComp/compare/v1.6.0...v1.7.0) (2025-06-30)
 
 
