@@ -1,0 +1,7 @@
+FROM ubuntu:24.04
+
+# Update package lists and install stress-ng
+RUN apt-get update && apt-get install -y fio && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# CMD ["fio", "--name", "seqread", "--rw", "read", "--bs", "1M" ,"--size", "8G", "--numjobs", "1" ,"--group_reporting"]

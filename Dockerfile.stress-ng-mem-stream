@@ -1,0 +1,7 @@
+FROM ubuntu:24.04
+
+# Update package lists and install stress-ng
+RUN apt-get update && apt-get install -y stress-ng && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# CMD ["stress-ng", "--stream", "4", "--stream-ops","5000","--metrics-brief"]
