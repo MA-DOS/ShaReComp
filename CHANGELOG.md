@@ -1,3 +1,18 @@
+# [1.9.0](https://github.com/MA-DOS/ShaReComp/compare/v1.8.0...v1.9.0) (2025-09-07)
+
+
+### Bug Fixes
+
+* add correct container permissions for fio benchmark ([b746fa0](https://github.com/MA-DOS/ShaReComp/commit/b746fa0169120f5a36b3836986237b1737022288))
+* added correct numa layout for coloc core level experiments ([9d53c71](https://github.com/MA-DOS/ShaReComp/commit/9d53c7168f02ac840824d4fe2250a100d57fa171))
+
+
+### Features
+
+* added calculation fordistance matrix, clustering threshold and completed clustering function ([ccd4ee2](https://github.com/MA-DOS/ShaReComp/commit/ccd4ee2ed4833f0e742cbe367639c670f41b50d6))
+* added logic to compute feature temporal signature for colocated jobs after clustering results ([ba87404](https://github.com/MA-DOS/ShaReComp/commit/ba874041f10a994878811bfeb958466a723731ab))
+* added pattern feature as only temporal signature for a job as comparison with model performance and clustering results ([95cee63](https://github.com/MA-DOS/ShaReComp/commit/95cee6366e4a99b85be8b14f2496feeae180c399))
+
 # [1.8.0](https://github.com/MA-DOS/ShaReComp/compare/v1.7.0...v1.8.0) (2025-07-07)
 
 
