@@ -153,42 +153,53 @@ def predict(request: PredictRequest):
                 if not model.model_type:
                     raise HTTPException(status_code=400, detail="Model type cannot be empty.")
                 
-                model_type = model.model_type[0]  # Safely access the first model type
-                if model_type == "kcca":
-                    # Get the current clustering as the simulator always 1) asks for the clusters and 2) asks for predictions for each cluster
-                    # TODO: Might need logic to recompute clusters and be able to properly update their task signatures
-                    # clusters = clusters_store.get("clusters", {})
-                    
-                    print ("Cluster to jobs mapping from global var:", cluster_to_jobs)
-                    print("Filtered signatures from global var:", filtered_signatures.keys())
-                    
-                    # Update the clusters signatures
-                    coloc_signatures = helpers.updateTaskSignatureToColoc(cluster_to_jobs, filtered_signatures)
-                    # print("Colocation signatures:", coloc_signatures)
-
-                    # Transform the signatures into a model acceptable format
-                    coloc_feature_matrix = helpers.buildColocFeatureMatrix(coloc_signatures)
-
-                    print("Coloc feature matrix:", coloc_feature_matrix[0])
-
-
-                    # Call the KCCA model to predict runtime and power consumption
-                    Y_pred = helpers.predictKCCALinReg(coloc_feature_matrix[0], reg_model, kcca)
-                    print("Predicted values from KCCA:", Y_pred)
-                    
-                    cluster_predictions["kcca"] = {
+                # model_type = model.model_type[0]  # Safely access the first model type
+                for model_type in model.model_type:
+                    if model_type == "kcca":
+                        # Get the current clustering as the simulator always 1) asks for the clusters and 2) asks for predictions for each cluster
+                        # TODO: Might need logic to recompute clusters and be able to properly update their task signatures
                         
+                        # Update the clusters signatures
+                        coloc_signatures = helpers.updateTaskSignatureToColoc(cluster_to_jobs, filtered_signatures)
+                        # print("Colocation signatures:", coloc_signatures)
+
+                        # Transform the signatures into a model acceptable format
+                        coloc_feature_matrix = helpers.buildColocFeatureMatrix(coloc_signatures)
                         
-                        # "runtime":12,
-                        # "power": 24,
-                    }
-                elif model_type == "rfr":
-                    cluster_predictions["rfr"] = {
-                        "runtime": round(random.uniform(0.6, 0.8), 3),
-                        "power": round(random.uniform(118, 122), 1)
-                    }
-                else:
-                    raise HTTPException(status_code=400, detail=f"Unsupported model type: {model_type}")
+                        print("Colocation feature matrix:", coloc_feature_matrix[int(cluster_id)])
+
+                        # Call the KCCA model to predict runtime and power consumption
+                        Y_pred = helpers.predictKCCALinReg(coloc_feature_matrix[int(cluster_id)], reg_model, kcca)
+                        
+                        cluster_predictions["kcca"] = {
+                            "runtime": float(np.round(Y_pred[0][0])),
+                            "power": float(np.round(Y_pred[0][1]))
+                        }
+
+                    elif model_type == "rfr":
+                        
+                        # Update the clusters signatures
+                        coloc_signatures = helpers.updateTaskSignatureToColoc(cluster_to_jobs, filtered_signatures)
+                        # print("Colocation signatures:", coloc_signatures)
+
+                        # Transform the signatures into a model acceptable format
+                        coloc_feature_matrix = helpers.buildColocFeatureMatrix(coloc_signatures)
+                        
+                        print("Colocation feature matrix:", coloc_feature_matrix[int(cluster_id)])
+
+                        Y_pred_rfr_runtime = helpers.predictRuntimeWithRandomForest(trainedRuntimePredictor, coloc_feature_matrix[int(cluster_id)])
+                        print("RFR predicted runtime:", Y_pred_rfr_runtime)
+
+                        Y_pred_rfr_power = helpers.predictPowerWithRandomForest(trainedPowerPredictor, coloc_feature_matrix[int(cluster_id)])
+                        print("RFR predicted power:", Y_pred_rfr_power)
+                        
+                        cluster_predictions["rfr"] = {
+                            
+                            "runtime": float(np.round(Y_pred_rfr_runtime)),
+                            "power": float(np.round(Y_pred_rfr_power))
+                        }
+                    else:
+                        raise HTTPException(status_code=400, detail=f"Unsupported model type: {model_type}")
             predictions[int(cluster_id)] = cluster_predictions 
 
         # Generate a unique run ID

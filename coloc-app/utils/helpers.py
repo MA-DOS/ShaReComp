@@ -347,3 +347,46 @@ def predictKCCALinReg(X_unseen, reg, kcca):
     except Exception as e:
         logger.error(f"Error during prediction: {e}")
         raise None
+
+        
+def predictPowerWithRandomForest(regressor, test_Data):
+    """
+    Predict the power consumption using the trained Random Forest regressor.
+    
+    Args:
+        regressor: Trained Random Forest regressor.
+        test_data: Test data for prediction.
+        
+    Returns:
+        Predicted power consumption values.
+    """
+    logger.info("Predicting power consumption with Random Forest model...")
+    try:
+        test_Data = np.array(test_Data).reshape(1, -1)
+        Y_pred = regressor.predict(test_Data)
+        return Y_pred
+    except Exception as e:
+        logger.error(f"Error during Random Forest prediction: {e}")
+        raise None
+
+
+def predictRuntimeWithRandomForest(regressor, test_Data):
+    """
+    Predict the runtime using the trained Random Forest regressor.
+    
+    Args:
+        regressor: Trained Random Forest regressor.
+        test_data: Test data for prediction.
+        
+    Returns:
+        Predicted runtime values.
+    """
+    logger.info("Predicting runtime with Random Forest model...")
+    try:
+        test_Data = np.array(test_Data).reshape(1, -1)
+        Y_pred = regressor.predict(test_Data)
+        return Y_pred
+    except Exception as e:
+        logger.error(f"Error during Random Forest prediction: {e}")
+        raise None
+
