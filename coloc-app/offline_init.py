@@ -425,7 +425,7 @@ def fitKCCALinReg(feature_matrix_x, feature_matrix_y):
     X_train_latent, _ = kcca.fit_transform((X_train_scaled, Y_train_scaled))
     reg = LinearRegression().fit(X_train_latent, Y_train)
 
-    return reg
+    return reg, kcca
 
 # 16
 # Build feature output matrix with runtime labels
@@ -591,6 +591,9 @@ def main():
     fin_df = addPowerToFinContainers(FIN_CONTAINERS, tasks_with_all_pairs, POWER_STATS)
 
     container_to_nextflow = containerToNfcore(FIN_CONTAINERS, tasks_with_all_pairs, POWER_STATS)
+    # logging.info("Mapped containers to nf-core jobs: ", pprint.pprint(container_to_nextflow))
+    logging.info("Mapped containers to nf-core jobs.")
+    logging.info(f"Keys are {list(container_to_nextflow.keys())[:5]} ...")
 
     # 13
     finished_containers_dfs_with_power = addPowerToFinContainers(FIN_CONTAINERS, tasks_with_all_pairs, POWER_STATS)
@@ -605,7 +608,7 @@ def main():
     # For testing
     # feature_matrix_x = [[0.1]*10]*50  # Placeholder feature matrix X
     # feature_matrix_y = [[0.1]*10]*50  # Placeholder feature matrix Y
-    reg_model = fitKCCALinReg(feature_matrix_x, feature_matrix_y)
+    reg_model, kcca = fitKCCALinReg(feature_matrix_x, feature_matrix_y)
     logging.info("Fitted KCCA model and linear Regression to the feature matrices.")
 
     # 16
@@ -646,7 +649,7 @@ def main():
     logging.info("Trained Random Forest Regressor for runtime prediction.")
 
     # Make some variables accessible globally if needed
-    return filtered_tasks_temporal_signatures, scoped_results, containerToNfcore, reg_model, trainedPowerPredictor, trainedRuntimePredictor
+    return filtered_tasks_temporal_signatures, scoped_results, container_to_nextflow, reg_model, kcca, trainedPowerPredictor, trainedRuntimePredictor
 
 if __name__ == "__main__":
     main()

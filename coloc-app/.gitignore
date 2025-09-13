@@ -212,16 +212,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-*.js
+.js
 
-# *.csv
-scoped_results
-
-coloc-app/coloc-venv
-
-.venv/
-venv/
-ENV/
-env/
-env.bak/
-venv.bak/
+.csv

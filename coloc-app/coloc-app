@@ -1,0 +1,32 @@
+[project]
+name = "sharecomp"
+version = "0.1.0"
+description = "Package to implement co-location strategies for scientific workflow tasks"
+authors = [
+    {name = "niklasfomin",email = "niklas.fomin@campus.tu-berlin.de"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10, <4.0.0"
+dependencies = [
+     "matplotlib >=3.0.0,<=3.3.4",
+    "ipykernel >=6.29.5,<7.0.0",
+    "numpy >=1.24.0,<2.0.0",
+    "pandas >=2.2.3,<3.0.0",
+    "docker >=7.1.0,<8.0.0",
+    "pyrcca >=0.2,<0.3",
+    "mvlearn (>=0.5.0,<0.6.0)",
+    "scikit-learn==1.5.2",     
+    "notebook (>=7.4.3,<8.0.0)",
+    "pyyaml (>=6.0.2,<7.0.0)",
+    "cca-zoo == 2.5.0",
+    "pydot (>=4.0.1,<5.0.0)",
+    "fastapi (>=0.116.1,<0.117.0)",
+    "pydantic (>=2.11.7,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
