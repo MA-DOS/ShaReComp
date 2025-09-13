@@ -1,3 +1,11 @@
+# [1.10.0](https://github.com/MA-DOS/ShaReComp/compare/v1.9.0...v1.10.0) (2025-09-13)
+
+
+### Features
+
+* added clustering and prediction endpoints for kcca and random forest regressor ([478b40f](https://github.com/MA-DOS/ShaReComp/commit/478b40f15cc19f99eb42deac8d816acc1c82f2a2))
+* added cv + hyperparameter tuning for random forest regressor ([379af05](https://github.com/MA-DOS/ShaReComp/commit/379af05a38b5bd52fda26d9daf5d456237c56f86))
+
 # [1.9.0](https://github.com/MA-DOS/ShaReComp/compare/v1.8.0...v1.9.0) (2025-09-07)
 
 
